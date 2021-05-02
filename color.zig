@@ -1,10 +1,10 @@
 pub const Color = struct {
-    r: i32,
-    g: i32,
-    b: i32,
-    a: i32,
+    r: u8,
+    g: u8,
+    b: u8,
+    a: u8,
 
-    pub fn init(rn: i32, gn: i32, bn: i32, an: i32) Color {
+    pub fn init(rn: u8, gn: u8, bn: u8, an: u8) Color {
         return .{
             .r = rn,
             .g = gn,
