@@ -11,7 +11,7 @@ pub const Cobra = struct {
     renderer: *c.SDL_Renderer,
     window_size: Vector2,
 
-    pub fn init(bgcolorn : Color, wsize : Vector2) Cobra {
+    pub fn init(bgcolorn : Color, wsize : Vector2) !Cobra {
         _ = c.SDL_Init(c.SDL_INIT_EVERYTHING);
         errdefer c.SDL_Quit();
 
@@ -20,7 +20,7 @@ pub const Cobra = struct {
 
         var renderer = try check_sdl_pointer( c.SDL_Renderer, c.SDL_CreateRenderer(window, -1, c.SDL_RENDERER_ACCELERATED) );
 
-        c.SDL_SetRenderDrawBlendMode(self.renderer, c.SDL_BLENDMODE_BLEND);
+        c.SDL_SetRenderDrawBlendMode(.renderer, c.SDL_BLENDMODE_BLEND);
         return .{
             .bgcolor = bgcolorn,
             .window_size = wsize,
